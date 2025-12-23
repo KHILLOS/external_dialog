@@ -2960,7 +2960,7 @@ test -z "$INSTALL_DATA" && INSTALL_DATA='${INSTALL} -m 644'
 if test "x$INSTALL" = "x./install-sh -c"; then
 	if test -f /usr/sbin/install ; then
 		case "$host_os" in
-		(linux*gnu|linux*gnuabi64|linux*gnuabin32|linux*gnuabielfv*|linux*gnueabi|linux*gnueabihf|linux*gnux32|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc)
+		(linux*gnu*|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc)
 			INSTALL=/usr/sbin/install
 			;;
 		esac
@@ -3792,7 +3792,7 @@ case "$host_os" in
 	cf_xopen_source="-D_SGI_SOURCE"
 	cf_XOPEN_SOURCE=
 	;;
-(linux*gnu|linux*gnuabi64|linux*gnuabin32|linux*gnuabielfv*|linux*gnueabi|linux*gnueabihf|linux*gnux32|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc)
+(linux*gnu*|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc)
 
 cf_gnu_xopen_source=$cf_XOPEN_SOURCE
 
@@ -7669,8 +7669,8 @@ then
 # remark #981: operands are evaluated in unspecified order
 # warning #279: controlling expression is constant
 
-	{ echo "$as_me:7672: checking for $CC warning options..." >&5
-echo "$as_me: checking for $CC warning options..." >&6;}
+	echo "$as_me:7672: checking for $CC warning options" >&5
+echo $ECHO_N "checking for $CC warning options... $ECHO_C" >&6
 	cf_save_CFLAGS="$CFLAGS"
 	EXTRA_CFLAGS="$EXTRA_CFLAGS -Wall"
 	for cf_opt in \
@@ -7698,8 +7698,8 @@ echo "${ECHO_T}... -$cf_opt" >&6
 	CFLAGS="$cf_save_CFLAGS"
 elif test "$GCC" = yes && test "$GCC_VERSION" != "unknown"
 then
-	{ echo "$as_me:7701: checking for $CC warning options..." >&5
-echo "$as_me: checking for $CC warning options..." >&6;}
+	echo "$as_me:7701: checking for $CC warning options" >&5
+echo $ECHO_N "checking for $CC warning options... $ECHO_C" >&6
 	cf_save_CFLAGS="$CFLAGS"
 	cf_warn_CONST=""
 	test "$with_ext_const" = yes && cf_warn_CONST="Wwrite-strings"
@@ -7777,8 +7777,8 @@ cat > conftest.i <<EOF
 EOF
 if test "$GCC" = yes
 then
-	{ echo "$as_me:7780: checking for $CC __attribute__ directives..." >&5
-echo "$as_me: checking for $CC __attribute__ directives..." >&6;}
+	echo "$as_me:7780: checking for $CC __attribute__ directives" >&5
+echo $ECHO_N "checking for $CC __attribute__ directives... $ECHO_C" >&6
 cat > "conftest.$ac_ext" <<EOF
 #line 7783 "${as_me:-configure}"
 #include <stdio.h>
@@ -8928,7 +8928,7 @@ if test "${am_cv_func_iconv+set}" = set; then
 else
 
 # If the linkage is not already in the $CPPFLAGS/$LDFLAGS configuration, these
-# will be set on completion of the AC_TRY_LINK below.
+# will be set on completion of the AC_LINK_IFELSE below.
 cf_cv_header_path_iconv=
 cf_cv_library_path_iconv=
 
@@ -10030,7 +10030,7 @@ esac
 fi;
 
 # If the linkage is not already in the $CPPFLAGS/$LDFLAGS configuration, these
-# will be set on completion of the AC_TRY_LINK below.
+# will be set on completion of the AC_LINK_IFELSE below.
 cf_cv_header_path_intl=
 cf_cv_library_path_intl=
 
@@ -15131,7 +15131,7 @@ else
 cat "conftest.$ac_ext" >&5
 
 # If the linkage is not already in the $CPPFLAGS/$LDFLAGS configuration, these
-# will be set on completion of the AC_TRY_LINK below.
+# will be set on completion of the AC_LINK_IFELSE below.
 cf_cv_header_path_utf8=
 cf_cv_library_path_utf8=
 
@@ -26162,7 +26162,7 @@ rm -f "conftest.$ac_objext" "conftest$ac_exeext" "conftest.$ac_ext"
 
 echo "$as_me:26163: checking if runtime has nl_langinfo support for first weekday" >&5
 echo $ECHO_N "checking if runtime has nl_langinfo support for first weekday... $ECHO_C" >&6
-if test "${cf_nl_langinfo_1stday+set}" = set; then
+if test "${cf_cv_langinfo_1stday+set}" = set; then
   echo $ECHO_N "(cached) $ECHO_C" >&6
 else
 
@@ -26198,20 +26198,20 @@ if { (eval echo "$as_me:26190: \"$ac_compile\"") >&5
   ac_status=$?
   echo "$as_me:26199: \$? = $ac_status" >&5
   (exit "$ac_status"); }; }; then
-  cf_nl_langinfo_1stday=yes
+  cf_cv_langinfo_1stday=yes
 
 else
   echo "$as_me: failed program was:" >&5
 cat "conftest.$ac_ext" >&5
-cf_nl_langinfo_1stday=no
+cf_cv_langinfo_1stday=no
 
 fi
 rm -f "conftest.$ac_objext" "conftest.$ac_ext"
 
 fi
-echo "$as_me:26212: result: $cf_nl_langinfo_1stday" >&5
-echo "${ECHO_T}$cf_nl_langinfo_1stday" >&6
-test "x$cf_nl_langinfo_1stday" = xyes &&
+echo "$as_me:26212: result: $cf_cv_langinfo_1stday" >&5
+echo "${ECHO_T}$cf_cv_langinfo_1stday" >&6
+test "x$cf_cv_langinfo_1stday" = xyes &&
 cat >>confdefs.h <<\EOF
 #define HAVE_NL_LANGINFO_1STDAY 1
 EOF
@@ -26602,7 +26602,11 @@ echo "${ECHO_T}$cf_cv_ld_searchpath" >&6
 LD_SEARCHPATH=`echo "$cf_cv_ld_searchpath"|sed -e 's/ /|/g'`
 
 ac_config_files="$ac_config_files dialog-config gen-pkgconfig makefile $EXTRA_OUTPUT $SUB_MAKEFILE"
+
 ac_config_commands="$ac_config_commands default"
+
+DEFS=-DHAVE_CONFIG_H
+
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -26682,7 +26686,7 @@ DEFS=-DHAVE_CONFIG_H
 : "${CONFIG_STATUS=./config.status}"
 ac_clean_files_save=$ac_clean_files
 ac_clean_files="$ac_clean_files $CONFIG_STATUS"
-{ echo "$as_me:26685: creating $CONFIG_STATUS" >&5
+{ echo "$as_me:26689: creating $CONFIG_STATUS" >&5
 echo "$as_me: creating $CONFIG_STATUS" >&6;}
 cat >"$CONFIG_STATUS" <<_ACEOF
 #! $SHELL
@@ -26863,7 +26867,7 @@ cat >>"$CONFIG_STATUS" <<\EOF
     echo "$ac_cs_version"; exit 0 ;;
   --he | --h)
     # Conflict between --help and --header
-    { { echo "$as_me:26866: error: ambiguous option: $1
+    { { echo "$as_me:26870: error: ambiguous option: $1
 Try \`$0 --help' for more information." >&5
 echo "$as_me: error: ambiguous option: $1
 Try \`$0 --help' for more information." >&2;}
@@ -26882,7 +26886,7 @@ Try \`$0 --help' for more information." >&2;}
     ac_need_defaults=false;;
 
   # This is an error.
-  -*) { { echo "$as_me:26885: error: unrecognized option: $1
+  -*) { { echo "$as_me:26889: error: unrecognized option: $1
 Try \`$0 --help' for more information." >&5
 echo "$as_me: error: unrecognized option: $1
 Try \`$0 --help' for more information." >&2;}
@@ -26942,7 +26946,7 @@ do
   "default-1" ) CONFIG_COMMANDS="$CONFIG_COMMANDS default-1" ;;
   "default" ) CONFIG_COMMANDS="$CONFIG_COMMANDS default" ;;
   "dlg_config.h" ) CONFIG_HEADERS="$CONFIG_HEADERS dlg_config.h:config.hin" ;;
-  *) { { echo "$as_me:26945: error: invalid argument: $ac_config_target" >&5
+  *) { { echo "$as_me:26949: error: invalid argument: $ac_config_target" >&5
 echo "$as_me: error: invalid argument: $ac_config_target" >&2;}
    { (exit 1); exit 1; }; };;
   esac
@@ -27315,7 +27319,7 @@ done; }
   esac
 
   if test x"$ac_file" != x-; then
-    { echo "$as_me:27318: creating $ac_file" >&5
+    { echo "$as_me:27322: creating $ac_file" >&5
 echo "$as_me: creating $ac_file" >&6;}
     rm -f "$ac_file"
   fi
@@ -27333,7 +27337,7 @@ echo "$as_me: creating $ac_file" >&6;}
       -) echo "$tmp"/stdin ;;
       [\\/$]*)
          # Absolute (can't be DOS-style, as IFS=:)
-         test -f "$f" || { { echo "$as_me:27336: error: cannot find input file: $f" >&5
+         test -f "$f" || { { echo "$as_me:27340: error: cannot find input file: $f" >&5
 echo "$as_me: error: cannot find input file: $f" >&2;}
    { (exit 1); exit 1; }; }
          echo "$f";;
@@ -27346,7 +27350,7 @@ echo "$as_me: error: cannot find input file: $f" >&2;}
            echo "$srcdir/$f"
          else
            # /dev/null tree
-           { { echo "$as_me:27349: error: cannot find input file: $f" >&5
+           { { echo "$as_me:27353: error: cannot find input file: $f" >&5
 echo "$as_me: error: cannot find input file: $f" >&2;}
    { (exit 1); exit 1; }; }
          fi;;
@@ -27362,7 +27366,7 @@ cat >>"$CONFIG_STATUS" <<\EOF
       if test -n "$ac_seen"; then
         ac_used=`grep '@datarootdir@' "$ac_item"`
         if test -z "$ac_used"; then
-          { echo "$as_me:27365: WARNING: datarootdir was used implicitly but not set:
+          { echo "$as_me:27369: WARNING: datarootdir was used implicitly but not set:
 $ac_seen" >&5
 echo "$as_me: WARNING: datarootdir was used implicitly but not set:
 $ac_seen" >&2;}
@@ -27371,7 +27375,7 @@ $ac_seen" >&2;}
       fi
       ac_seen=`grep '${datarootdir}' "$ac_item"`
       if test -n "$ac_seen"; then
-        { echo "$as_me:27374: WARNING: datarootdir was used explicitly but not set:
+        { echo "$as_me:27378: WARNING: datarootdir was used explicitly but not set:
 $ac_seen" >&5
 echo "$as_me: WARNING: datarootdir was used explicitly but not set:
 $ac_seen" >&2;}
@@ -27416,7 +27420,7 @@ cat >>"$CONFIG_STATUS" <<\EOF
             ac_init=`$EGREP '[ 	]*'$ac_name'[ 	]*=' "$ac_file"`
             if test -z "$ac_init"; then
               ac_seen=`echo "$ac_seen" |sed -e 's,^,'"$ac_file"':,'`
-              { echo "$as_me:27419: WARNING: Variable $ac_name is used but was not set:
+              { echo "$as_me:27423: WARNING: Variable $ac_name is used but was not set:
 $ac_seen" >&5
 echo "$as_me: WARNING: Variable $ac_name is used but was not set:
 $ac_seen" >&2;}
@@ -27427,7 +27431,7 @@ $ac_seen" >&2;}
     $EGREP -n '@[A-Z_][A-Z_0-9]+@' "$ac_file" >>"$tmp"/out
     if test -s "$tmp"/out; then
       ac_seen=`sed -e 's,^,'"$ac_file"':,' < "$tmp"/out`
-      { echo "$as_me:27430: WARNING: Some variables may not be substituted:
+      { echo "$as_me:27434: WARNING: Some variables may not be substituted:
 $ac_seen" >&5
 echo "$as_me: WARNING: Some variables may not be substituted:
 $ac_seen" >&2;}
@@ -27476,7 +27480,7 @@ for ac_file in : $CONFIG_HEADERS; do test "x$ac_file" = x: && continue
   * )   ac_file_in=$ac_file.in ;;
   esac
 
-  test x"$ac_file" != x- && { echo "$as_me:27479: creating $ac_file" >&5
+  test x"$ac_file" != x- && { echo "$as_me:27483: creating $ac_file" >&5
 echo "$as_me: creating $ac_file" >&6;}
 
   # First look for the input files in the build tree, otherwise in the
@@ -27487,7 +27491,7 @@ echo "$as_me: creating $ac_file" >&6;}
       -) echo "$tmp"/stdin ;;
       [\\/$]*)
          # Absolute (can't be DOS-style, as IFS=:)
-         test -f "$f" || { { echo "$as_me:27490: error: cannot find input file: $f" >&5
+         test -f "$f" || { { echo "$as_me:27494: error: cannot find input file: $f" >&5
 echo "$as_me: error: cannot find input file: $f" >&2;}
    { (exit 1); exit 1; }; }
          echo $f;;
@@ -27500,7 +27504,7 @@ echo "$as_me: error: cannot find input file: $f" >&2;}
            echo "$srcdir/$f"
          else
            # /dev/null tree
-           { { echo "$as_me:27503: error: cannot find input file: $f" >&5
+           { { echo "$as_me:27507: error: cannot find input file: $f" >&5
 echo "$as_me: error: cannot find input file: $f" >&2;}
    { (exit 1); exit 1; }; }
          fi;;
@@ -27558,7 +27562,7 @@ cat >>"$CONFIG_STATUS" <<\EOF
   rm -f "$tmp"/in
   if test x"$ac_file" != x-; then
     if cmp -s "$ac_file" "$tmp/config.h" 2>/dev/null; then
-      { echo "$as_me:27561: $ac_file is unchanged" >&5
+      { echo "$as_me:27565: $ac_file is unchanged" >&5
 echo "$as_me: $ac_file is unchanged" >&6;}
     else
       ac_dir=`$as_expr X"$ac_file" : 'X\(.*[^/]\)//*[^/][^/]*/*$' \| \

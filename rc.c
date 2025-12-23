@@ -1,5 +1,5 @@
 /*
- *  $Id: rc.c,v 1.64 2025/01/09 22:33:20 tom Exp $
+ *  $Id: rc.c,v 1.65 2025/12/22 22:25:21 tom Exp $
  *
  *  rc.c -- routines for processing the configuration file
  *
@@ -105,7 +105,7 @@ static const vars_st vars[] =
     {"aspect",
      &dialog_state.aspect_ratio,
      VAL_INT,
-     "Set aspect-ration."},
+     "Set aspect-ratio."},
 
     {"separate_widget",
      &dialog_state.separate_str,

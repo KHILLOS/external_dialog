@@ -1,8 +1,19 @@
--- $Id: CHANGES,v 1.834 2025/10/01 22:27:51 tom Exp $
+-- $Id: CHANGES,v 1.841 2025/12/23 23:15:09 tom Exp $
 -- Thomas E. Dickey <dickey@invisible-island.net>
 
 This version of dialog was originally from a Debian snapshot.  I've done this
 to it:
+
+2025/12/23
+	+ correct a typo for aspect ratio in files written by --create-rc
+	  (report by Mike Castle).
+	+ improve manpage description of --hline (report by Mike Castle).
+	+ update configure script macros for cross-compatibility.
+	+ added kab.po from
+		https://translationproject.org/latest/dialog/
+	+ updated bg.po, de.po, eo.po, fa.po, id.po, ja.po, ms.po, pl.po,
+	  pt.po, ro.po, sq.po, sv.po, uk.po from
+		https://translationproject.org/latest/dialog/
 
 2025/10/01
 	+ configure script fixes for compiler warnings

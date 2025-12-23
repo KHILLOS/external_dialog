@@ -1,6 +1,6 @@
 '\" t
-.\" $Id: dialog.3,v 1.149 2024/03/06 09:13:53 tom Exp $
-.\" Copyright 2005-2023,2024  Thomas E. Dickey
+.\" $Id: dialog.3,v 1.150 2025/12/22 22:22:18 tom Exp $
+.\" Copyright 2005-2024,2025  Thomas E. Dickey
 .\"
 .\" This program is free software; you can redistribute it and/or modify
 .\" it under the terms of the GNU Lesser General Public License, version 2.1
@@ -64,7 +64,7 @@
 .el   .ds '  '
 .\}",
 .
-.TH \*D "" 2024-03-06 "" "Library calls"
+.TH \*D "" 2025-12-22 "" "Library calls"
 .SH NAME
 dialog \-
 widgets and utilities for the \*p program
@@ -544,10 +544,17 @@ The given string overrides the label used for \*(``Help\*('' buttons.
 This corresponds to the command-line option "\fB\-\-hline\fP \fIstring\/\fP".
 The given string is displayed in the bottom of dialog windows,
 like a subtitle.
+.PP
+Scrollable windows have an indicator near the left side of the widget,
+and a corresponding space is reserved on the right side.
+This limits the amount of text which can be displayed to 9 columns less
+than the window width.
+If insufficient space is available,
+no text is shown.
 .\" ---------------------------------------------------------------------------
 .SS .help_status
 This corresponds to the command-line option "\fB\-\-help\-status\fP".
-If true, and the the help-button is selected,
+If true, and the help-button is selected,
 writes the checklist or radiolist information
 after the item-help \*(``HELP\*('' information.
 This can be used to reconstruct the state of a checklist after processing
