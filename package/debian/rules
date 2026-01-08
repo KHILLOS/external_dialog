@@ -50,6 +50,7 @@ override_dh_link:
 		-e \"s/.DST/.\$$D/\" \
 		debian/cdialog-dev.links"
 	diff -u debian/cdialog-dev.links.bak debian/cdialog-dev.links || echo OK
+	rm -f debian/cdialog-dev.links.bak 
 	dh_link
 
 override_dh_installdocs:
@@ -65,5 +66,10 @@ override_dh_installchangelogs:
 override_dh_installman:
 	# dh_install does this
 
+override_dh_missing:
+	# it really gets confused by the way cdialog is split up...
+
 override_dh_shlibdeps:
-	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
+	dh_shlibdeps -- \
+		-ldebian/cdialog/usr/lib/${DEB_HOST_MULTIARCH} \
+		--ignore-missing-info

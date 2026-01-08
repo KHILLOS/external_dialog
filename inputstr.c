@@ -1,9 +1,9 @@
 /*
- *  $Id: inputstr.c,v 1.98 2025/08/17 23:55:08 tom Exp $
+ *  $Id: inputstr.c,v 1.99 2026/01/01 19:13:13 tom Exp $
  *
  *  inputstr.c -- functions for input/display of a string
  *
- *  Copyright 2000-2024,2025	Thomas E. Dickey
+ *  Copyright 2000-2025,2026	Thomas E. Dickey
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License, version 2.1
@@ -195,7 +195,7 @@ same_cache2(CACHE * cache, const char *string, unsigned i_len)
 	|| cache->s_len < s_len
 	|| cache->list == NULL
 	|| !SAME_CACHE(cache, string, (size_t) s_len)) {
-	unsigned need = (i_len + 1);
+	unsigned need = (i_len + 2);
 
 	if (cache->list == NULL) {
 	    cache->list = dlg_malloc(int, need);
@@ -459,6 +459,7 @@ dlg_index_columns(const char *string)
 		    cache->list[inx + 1] += cache->list[inx];
 	    }
 	}
+	cache->list[len + 1] = -1;
     }
     return cache->list;
 }

@@ -1,9 +1,9 @@
 /*
- *  $Id: formbox.c,v 1.109 2025/01/09 22:33:20 tom Exp $
+ *  $Id: formbox.c,v 1.111 2026/01/01 13:56:37 tom Exp $
  *
  *  formbox.c -- implements the form (i.e., some pairs label/editbox)
  *
- *  Copyright 2003-2024,2025	Thomas E. Dickey
+ *  Copyright 2003-2025,2026	Thomas E. Dickey
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License, version 2.1
@@ -384,14 +384,15 @@ make_FORM_ELTs(DIALOG_FORMITEM * item,
 	 * We do not know the actual length of .text, so we allocate it here
 	 * to ensure it is big enough.
 	 */
+#define InputLimit(ilen) dlg_max_input(MAX(ilen + 1, MAX_LEN))
 	if (item[i].text_flen > 0) {
-	    int max_len = dlg_max_input(MAX(item[i].text_ilen + 1, MAX_LEN));
+	    int max_len = InputLimit(item[i].text_ilen);
 	    char *old_text = item[i].text;
 
 	    item[i].text = dlg_malloc(char, (size_t) max_len + 1);
 	    assert_ptr(item[i].text, "make_FORM_ELTs");
 
-	    sprintf(item[i].text, "%.*s", item[i].text_ilen, old_text);
+	    sprintf(item[i].text, "%.*s", max_len, old_text);
 
 	    if (item[i].text_free) {
 		free(old_text);
@@ -869,7 +870,7 @@ dlg_form(const char *title,
 	if (state == sTEXT) {	/* Input box selected */
 	    if (!is_readonly(current)) {
 		int save = dialog_vars.max_input;
-		dialog_vars.max_input = current->text_ilen;
+		dialog_vars.max_input = InputLimit(current->text_ilen);
 		edit = dlg_edit_string(current->text, &chr_offset, key,
 				       fkey, first);
 		dialog_vars.max_input = save;

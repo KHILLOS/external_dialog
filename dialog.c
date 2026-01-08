@@ -1,9 +1,9 @@
 /*
- * $Id: dialog.c,v 1.296 2025/08/17 20:04:40 tom Exp $
+ * $Id: dialog.c,v 1.297 2026/01/01 13:22:13 tom Exp $
  *
  *  cdialog - Display simple dialog boxes from shell scripts
  *
- *  Copyright 2000-2024,2025	Thomas E. Dickey
+ *  Copyright 2000-2025,2026	Thomas E. Dickey
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License, version 2.1
@@ -1537,7 +1537,7 @@ Help(void)
     static const char *const tbl_1[] =
     {
 	"cdialog (ComeOn Dialog!) version %s",
-	"Copyright 2000-2024,2025 Thomas E. Dickey",
+	"Copyright 2000-2025,2026 Thomas E. Dickey",
 	"This is free software; see the source for copying conditions.  There is NO",
 	"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
 	"",

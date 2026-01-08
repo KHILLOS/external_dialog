@@ -1,5 +1,5 @@
 dnl macros used for DIALOG configure script
-dnl $Id: aclocal.m4,v 1.208 2025/12/22 09:17:44 tom Exp $
+dnl $Id: aclocal.m4,v 1.209 2025/12/25 23:43:31 tom Exp $
 dnl ---------------------------------------------------------------------------
 dnl Copyright 1999-2024,2025 -- Thomas E. Dickey
 dnl
@@ -2339,7 +2339,7 @@ if test "$cf_cv_type_unionwait" = yes; then
 fi
 ])dnl
 dnl ---------------------------------------------------------------------------
-dnl CF_GCC_ATTRIBUTES version: 27 updated: 2025/12/14 18:31:24
+dnl CF_GCC_ATTRIBUTES version: 28 updated: 2025/12/25 18:43:31
 dnl -----------------
 dnl Test for availability of useful gcc __attribute__ directives to quiet
 dnl compiler warnings.  Though useful, not all are supported -- and contrary
@@ -2367,6 +2367,7 @@ EOF
 if test "$GCC" = yes
 then
 	AC_MSG_CHECKING([for $CC __attribute__ directives])
+	test -n "$verbose" && AC_MSG_RESULT()
 cat > "conftest.$ac_ext" <<EOF
 #line __oline__ "${as_me:-configure}"
 #include <stdio.h>
@@ -2469,7 +2470,7 @@ CF_INTEL_COMPILER(GCC,INTEL_COMPILER,CFLAGS)
 CF_CLANG_COMPILER(GCC,CLANG_COMPILER,CFLAGS)
 ])dnl
 dnl ---------------------------------------------------------------------------
-dnl CF_GCC_WARNINGS version: 44 updated: 2025/12/14 18:31:24
+dnl CF_GCC_WARNINGS version: 45 updated: 2025/12/24 09:07:25
 dnl ---------------
 dnl Check if the compiler supports useful warning options.  There's a few that
 dnl we don't use, simply because they're too noisy:
@@ -2511,6 +2512,7 @@ then
 # warning #279: controlling expression is constant
 
 	AC_MSG_CHECKING([for $CC warning options])
+	test -n "$verbose" && AC_MSG_RESULT()
 	cf_save_CFLAGS="$CFLAGS"
 	EXTRA_CFLAGS="$EXTRA_CFLAGS -Wall"
 	for cf_opt in \
@@ -2534,6 +2536,7 @@ then
 elif test "$GCC" = yes && test "$GCC_VERSION" != "unknown"
 then
 	AC_MSG_CHECKING([for $CC warning options])
+	test -n "$verbose" && AC_MSG_RESULT()
 	cf_save_CFLAGS="$CFLAGS"
 	cf_warn_CONST=""
 	test "$with_ext_const" = yes && cf_warn_CONST="Wwrite-strings"
@@ -3401,7 +3404,7 @@ dnl $1 is the cache variable to set
 dnl $2 is the header-file to include
 dnl $3 is the root name (ncurses or ncursesw)
 AC_DEFUN([CF_NCURSES_CC_CHECK],[
-	AC_TRY_COMPILE([
+	AC_COMPILE_IFELSE([AC_LANG_PROGRAM([
 ]ifelse([$3],ncursesw,[
 #define _XOPEN_SOURCE_EXTENDED
 #undef  HAVE_LIBUTF8_H	/* in case we used CF_UTF8_LIB */
@@ -3422,7 +3425,7 @@ printf("old\\n");
 	#error __NCURSES_H is not defined
 #endif
 #endif
-	]
+	])]dnl
 	,[$1=$2]
 	,[$1=no])
 ])dnl

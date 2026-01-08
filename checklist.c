@@ -1,9 +1,9 @@
 /*
- *  $Id: checklist.c,v 1.172 2025/01/09 22:33:20 tom Exp $
+ *  $Id: checklist.c,v 1.173 2026/01/04 15:56:04 tom Exp $
  *
  *  checklist.c -- implements the checklist box
  *
- *  Copyright 2000-2024,2025	Thomas E. Dickey
+ *  Copyright 2000-2025,2026	Thomas E. Dickey
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License, version 2.1
@@ -29,7 +29,7 @@
 #include <dlg_internals.h>
 #include <dlg_keys.h>
 
-#define MIN_HIGH  (1 + (5 * MARGIN))
+#define MIN_HIGH  (PROMPT_ROWS + BUTTON_ROWS + (3 * MARGIN))
 
 typedef struct {
     /* the outer-window */
@@ -206,6 +206,9 @@ dlg_checklist(const char *title,
     char *prompt;
     const char **buttons = dlg_ok_labels();
     const char *widget_name;
+    bool specific_size;
+    bool automate_size;
+    int adjust_size;
 
     DLG_TRACE(("# %s args:\n", flag ? "checklist" : "radiolist"));
     DLG_TRACE2S("title", title);
@@ -258,14 +261,21 @@ dlg_checklist(const char *title,
     all.use_height = list_height;
     use_width = dlg_calc_list_width(item_no, items) + 10;
     use_width = MAX(26, use_width);
+    specific_size = (width > 1 || height > 1);
+    automate_size = (width == 0 && height == 0);
+    adjust_size = 0;
+    if (all.use_height <= 1 && automate_size)
+	adjust_size = 1;
     if (all.use_height == 0) {
 	/* calculate height without items (4) */
-	dlg_auto_size(title, prompt, &height, &width, MIN_HIGH, use_width);
+	dlg_auto_size(title, prompt,
+		      &height, &width,
+		      MIN_HIGH - adjust_size, use_width);
 	dlg_calc_listh(&height, &all.use_height, item_no);
     } else {
 	dlg_auto_size(title, prompt,
 		      &height, &width,
-		      MIN_HIGH + all.use_height, use_width);
+		      MIN_HIGH + all.use_height - adjust_size, use_width);
     }
     dlg_button_layout(buttons, &width);
     dlg_print_size(height, width);
@@ -305,7 +315,9 @@ dlg_checklist(const char *title,
      * After displaying the prompt, we know how much space we really have.
      * Limit the list to avoid overwriting the ok-button.
      */
-    all.use_height = height - MIN_HIGH - cur_y;
+    all.use_height = height - MIN_HIGH - cur_y - 2;
+    if (specific_size)
+	all.use_height++;
     if (all.use_height <= 0)
 	all.use_height = 1;
 

@@ -1,9 +1,9 @@
 /*
- *  $Id: dialog.h,v 1.312 2025/01/09 22:34:30 tom Exp $
+ *  $Id: dialog.h,v 1.313 2026/01/02 11:28:17 tom Exp $
  *
  *  dialog.h -- common declarations for all dialog modules
  *
- *  Copyright 2000-2024,2025	Thomas E. Dickey
+ *  Copyright 2000-2025,2026	Thomas E. Dickey
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License, version 2.1
@@ -135,11 +135,13 @@
 #define DLG_EXIT_ITEM_HELP	4	/* actually DLG_EXIT_HELP */
 #define DLG_EXIT_TIMEOUT	5
 
-#define MARGIN 1	/* width of the line drawn around each box */
-#define GUTTER 2	/* minimum columns between name/description in menu */
-#define SHADOW_ROWS 1	/* rows to reserve for window's shadow */
-#define SHADOW_COLS 2	/* columns to reserve for window's shadow */
-#define ARROWS_COL  5	/* distance from left margin to up/down arrows */
+#define PROMPT_ROWS  1	/* rows to allow for subtitle/caption/prompt */
+#define BUTTON_ROWS  1	/* rows to allow for buttons */
+#define MARGIN       1	/* width of the line drawn around each box */
+#define GUTTER       2	/* minimum columns between name/description in menu */
+#define SHADOW_ROWS  1	/* rows to reserve for window's shadow */
+#define SHADOW_COLS  2	/* columns to reserve for window's shadow */
+#define ARROWS_COL   5	/* distance from left margin to up/down arrows */
 
 #define DEFAULT_SEPARATE_STR "\t"
 #define DEFAULT_ASPECT_RATIO 9

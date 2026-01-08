@@ -1,7 +1,7 @@
 #!/bin/sh
-# $Id: run_test.sh,v 1.3 2022/12/29 16:13:11 tom Exp $
+# $Id: run_test.sh,v 1.4 2026/01/05 08:45:24 tom Exp $
 ##############################################################################
-# Copyright (c) 2020,2022 Thomas E. Dickey                                   #
+# Copyright (c) 2020-2022,2026 Thomas E. Dickey                              #
 #                                                                            #
 # Permission is hereby granted, free of charge, to any person obtaining a    #
 # copy of this software and associated documentation files (the "Software"), #
@@ -42,6 +42,26 @@ OUTPUT=output.rc
 
 [ -f "$DIALOG" ] || failed "no such file: $DIALOG"
 [ -d "$CONFIG" ] || failed "no such directory: $CONFIG"
+
+# Expect to find dialog's shared library in the directory where it was linked.
+case "$DIALOG" in
+*/*)
+	THIS_DIR=`echo "$DIALOG" | sed -e 's,/[^/]*$,,'`
+	THIS_DIR=`unset CDPATH; cd "$THIS_DIR" && pwd`
+	;;
+*)
+	THIS_DIR=`pwd`
+	;;
+esac
+
+# Help linker to load dialog's shared library from the build-directory.
+if [ -n "$LD_LIBRARY_PATH" ]
+then
+	LD_LIBRARY_PATH="$THIS_DIR:$LD_LIBRARY_PATH"
+else
+	LD_LIBRARY_PATH="$THIS_DIR"
+fi
+export LD_LIBRARY_PATH
 
 create_rc="`$DIALOG --help | grep create-rc`"
 if [ -z "$create_rc" ]

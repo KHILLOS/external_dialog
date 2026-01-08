@@ -1,9 +1,9 @@
 /*
- *  $Id: menubox.c,v 1.177 2025/01/09 22:33:20 tom Exp $
+ *  $Id: menubox.c,v 1.180 2026/01/04 21:41:38 tom Exp $
  *
  *  menubox.c -- implements the menu box
  *
- *  Copyright 2000-2024,2025	Thomas E. Dickey
+ *  Copyright 2000-2025,2026	Thomas E. Dickey
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public Licens, version 2.1e
@@ -48,7 +48,7 @@ typedef struct {
     int item_no;
 } ALL_DATA;
 
-#define MIN_HIGH  (1 + (5 * MARGIN))
+#define MIN_HIGH  (PROMPT_ROWS + BUTTON_ROWS + (3 * MARGIN))
 
 #define INPUT_ROWS     3	/* rows per inputmenu entry */
 
@@ -155,7 +155,7 @@ input_menu_edit(ALL_DATA * data,
     int code = TRUE;
     int max_len = dlg_max_input(MAX((int) strlen(items->text) + 1, MAX_LEN));
 
-    result = dlg_malloc(char, (size_t) max_len);
+    result = dlg_malloc(char, (size_t) max_len + 1);
     assert_ptr(result, "input_menu_edit");
 
     /* original item is used to initialize the input string. */
@@ -370,6 +370,9 @@ dlg_menu(const char *title,
     const char **buttons = dlg_ok_labels();
     bool is_inputmenu = ((rename_menutext != NULL)
 			 && (rename_menutext != dlg_dummy_menutext));
+    bool specific_size;
+    bool automate_size;
+    int adjust_size;
 
     DLG_TRACE(("# menubox args:\n"));
     DLG_TRACE2S("title", title);
@@ -398,14 +401,27 @@ dlg_menu(const char *title,
     all.menu_height = menu_height;
     use_width = dlg_calc_list_width(item_no, items) + 10;
     use_width = MAX(26, use_width);
+
+    if (is_inputmenu) {
+	specific_size = FALSE;
+	adjust_size = 0;
+    } else {
+	specific_size = (width > 1 || height > 1);
+	automate_size = (width == 0 && height == 0);
+	adjust_size = 0;
+	if (all.menu_height <= 1 && automate_size)
+	    adjust_size = 1;
+    }
     if (all.menu_height == 0) {
 	/* calculate height without items (4) */
-	dlg_auto_size(title, prompt, &height, &width, MIN_HIGH, use_width);
+	dlg_auto_size(title, prompt,
+		      &height, &width,
+		      MIN_HIGH - adjust_size, use_width);
 	dlg_calc_listh(&height, &all.menu_height, item_no);
     } else {
 	dlg_auto_size(title, prompt,
 		      &height, &width,
-		      MIN_HIGH + all.menu_height, use_width);
+		      MIN_HIGH + all.menu_height - adjust_size, use_width);
     }
     dlg_button_layout(buttons, &width);
     dlg_print_size(height, width);
@@ -438,7 +454,9 @@ dlg_menu(const char *title,
      * After displaying the prompt, we know how much space we really have.
      * Limit the list to avoid overwriting the ok-button.
      */
-    all.menu_height = height - MIN_HIGH - cur_y;
+    all.menu_height = height - MIN_HIGH - cur_y - 2;
+    if (specific_size)
+	all.menu_height++;
     if (all.menu_height <= 0)
 	all.menu_height = 1;
 

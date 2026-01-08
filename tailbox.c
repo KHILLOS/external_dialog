@@ -1,9 +1,9 @@
 /*
- *  $Id: tailbox.c,v 1.89 2025/01/09 22:33:20 tom Exp $
+ *  $Id: tailbox.c,v 1.90 2026/01/01 19:21:18 tom Exp $
  *
  *  tailbox.c -- implements the tail box
  *
- *  Copyright 2000-2024,2025	Thomas E. Dickey
+ *  Copyright 2000-2025,2026	Thomas E. Dickey
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License, version 2.1
@@ -98,11 +98,13 @@ print_line(MY_OBJ * obj, WINDOW *win, int row, int limit)
 	    limit = getmaxx(obj->text);
 	--limit;		/* for the leading ' ' */
 
+#define ValidCol(n) ((n) <= limit && cols[(n)] >= 0)
+
 	x = 1;
-	for (i = 0; i <= limit && cols[i] < obj->hscroll; ++i)
+	for (i = 0; ValidCol(i) && cols[i] < obj->hscroll; ++i)
 	    first = i;
 
-	for (i = first; (i <= limit) && ((cols[i] - cols[first]) < limit); ++i)
+	for (i = first; ValidCol(i) && ((cols[i] - cols[first]) < limit); ++i)
 	    last = i;
 
 	dialog_vars.colors = TRUE;
