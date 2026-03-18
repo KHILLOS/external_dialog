@@ -1,112 +1,224 @@
-# Arabic translation of Dialog.
+# Arabic translation of Dialog
+# Copyright (C) 2008 Felipe Castro
 # This file is distributed under the same license as the dialog package.
-# Copyright (C) 2005 Thomas Dickey.
-# Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>, 2004.
-#
+# Felipe Castro <fefcas@gmail.com>, 2008
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dialog 1.0-20050116\n"
+"Project-Id-Version: dialog 1.3.20251001\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-16 17:57-0500\n"
-"PO-Revision-Date: 2004-07-21 00:22+0300\n"
-"Last-Translator: Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>\n"
-"Language-Team: Arabic <support@arabeyes.org>\n"
+"POT-Creation-Date: 2021-03-06 08:43-0500\n"
+"PO-Revision-Date: 2026-02-07 06:50+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: Arabic <(nothing)>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 && n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
-#: buttons.c:387
+#: buttons.c:500
 msgid "Yes"
 msgstr "نعم"
 
-#: buttons.c:395
+#: buttons.c:508
 msgid "No"
 msgstr "لا"
 
-#: buttons.c:403
+#: buttons.c:516
 msgid "OK"
-msgstr "موافق"
+msgstr "حسنًا"
 
-#: buttons.c:411
+#: buttons.c:524
 msgid "Cancel"
-msgstr "إلغاء"
+msgstr "ألغِ"
 
-#: buttons.c:419
+#: buttons.c:532
 msgid "EXIT"
-msgstr ""
+msgstr "اخرج"
 
-#: buttons.c:427
+#: buttons.c:540
 msgid "Extra"
-msgstr ""
+msgstr "اضافية"
 
-#: buttons.c:435
+#: buttons.c:548
 msgid "Help"
-msgstr ""
+msgstr "مساعدة"
 
 #. Headline "Month"
-#: calendar.c:298
+#: calendar.c:463
 msgid "Month"
-msgstr ""
+msgstr "الشهر"
 
 #. Headline "Year"
-#: calendar.c:318
+#: calendar.c:485
 msgid "Year"
-msgstr ""
+msgstr "السنة"
 
-#: dialog.c:756
+#: dialog.c:473
+#, c-format
+msgid "Invalid option \"%s\""
+msgstr "خيار غير صالح  \"%s\""
+
+#: dialog.c:533
+#, c-format
+msgid "Showing arguments at arg%d\n"
+msgstr "إظهار المعطيات في المعطى arg%d\n"
+
+#: dialog.c:542
+msgid "Too many --file options"
+msgstr "خيارات --file كثيرة جداً"
+
+#: dialog.c:575
+msgid "error on filehandle in unescape_argv"
+msgstr "خطأ في واصف الملف (filehandle) في unescape_argv"
+
+#: dialog.c:634
+#, c-format
+msgid "Cannot open --file %s"
+msgstr "لا يمكن فتح الملف --file %s"
+
+#: dialog.c:638
+msgid "No value given for --file"
+msgstr "لم يُعطى قيمة للخيار --file"
+
+#: dialog.c:713
+#, c-format
+msgid ""
+"%s.\n"
+"Use --help to list options.\n"
+"\n"
+msgstr ""
+"%s.\n"
+"استخدم --help للحصول على قائمة الخيارات.\n"
+"\n"
+
+#: dialog.c:747
+#, c-format
+msgid "Expected %d arguments, found only %d"
+msgstr "متوقع %d من المعطيات، وُجد %d فقط"
+
+#: dialog.c:751
+#, c-format
+msgid "Expected %d arguments, found extra %d"
+msgstr "متوقع %d من المعطيات، وُجد %d إضافية"
+
+#: dialog.c:775
+#, c-format
+msgid "Expected a number for token %d of %.*s"
+msgstr "متوقع رقم للرمز %d من %.*s"
+
+#: dialog.c:911
 msgid "Rename"
-msgstr ""
+msgstr "أعد التسمية"
 
-#: fselect.c:571
+#: dialog.c:1367
+#, c-format
+msgid "Expected a numeric-parameter for %.*s"
+msgstr "متوقع معامل عددي لـ %.*s"
+
+#: dialog.c:1423
+#, c-format
+msgid "Button name \"%.*s\" unknown"
+msgstr "اسم الزر \"%.*s\" غير معروف"
+
+#: dialog.c:1896
+msgid "Cannot open input-fd\n"
+msgstr "لا يمكن فتح input-fd\n"
+
+#: dialog.c:1903
+msgid "Cannot open output-fd\n"
+msgstr "لا يمكن فتح output-fd\n"
+
+#: dialog.c:1983
+#, c-format
+msgid "Expected a filename for %.*s"
+msgstr "متوقع اسم ملف لـ %.*s"
+
+#: dialog.c:2018
+msgid "Expected a box option"
+msgstr "متوقع خيار صندوق (box option)"
+
+#: dialog.c:2031
+#, c-format
+msgid "Unexpected widget with --separate-output %.*s"
+msgstr "أداة (widget) غير متوقعة مع --separate-output %.*s"
+
+#: dialog.c:2047
+#, c-format
+msgid "Unexpected option %.*s"
+msgstr "خيار غير متوقع %.*s"
+
+#: dialog.c:2048
+#, c-format
+msgid "Unknown option %.*s"
+msgstr "خيار مجهول %.*s"
+
+#: dialog.c:2056
+#, c-format
+msgid "Expected at least %d tokens for %.*s, have %d"
+msgstr "متوقع على الأقل %d من الرموز لـ %.*s، يوجد %d"
+
+#: dialog.c:2064
+#, c-format
+msgid "Expected no more than %d tokens for %.*s, have %d"
+msgstr "متوقع ألا يزيد عن %d من الرموز لـ %.*s، يوجد %d"
+
+#: dialog.c:2128
+#, c-format
+msgid "Expected --and-widget, not %.*s"
+msgstr "متوقع --and-widget، وليس %.*s"
+
+#: fselect.c:630
 msgid "Directories"
-msgstr ""
+msgstr "المجلدات"
 
-#: fselect.c:572
+#: fselect.c:631
 msgid "Files"
-msgstr ""
+msgstr "الملفات"
 
 #: mixedgauge.c:58
 msgid "Succeeded"
-msgstr ""
+msgstr "نجح"
 
 #: mixedgauge.c:61
 msgid "Failed"
-msgstr ""
+msgstr "فشل"
 
 #: mixedgauge.c:64
 msgid "Passed"
-msgstr ""
+msgstr "مر"
 
 #: mixedgauge.c:67
 msgid "Completed"
-msgstr ""
+msgstr "اكتمل"
 
 #: mixedgauge.c:70
 msgid "Checked"
-msgstr ""
+msgstr "مفحوص"
 
 #: mixedgauge.c:73
 msgid "Done"
-msgstr ""
+msgstr "تمّ"
 
 #: mixedgauge.c:76
 msgid "Skipped"
-msgstr ""
+msgstr "متخطَ"
 
 #: mixedgauge.c:79
 msgid "In Progress"
-msgstr ""
+msgstr "قيد التقدم"
 
 #: mixedgauge.c:85
 msgid "N/A"
-msgstr ""
+msgstr "غ/م"
 
 #: mixedgauge.c:193
 msgid "Overall Progress"
-msgstr ""
+msgstr "التّقدّم الكلّيّ"
 
-#: textbox.c:468
+#: textbox.c:517
 msgid "Search"
-msgstr ""
+msgstr "ابحث"

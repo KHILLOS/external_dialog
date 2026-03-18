@@ -4,13 +4,14 @@
 # This file is distributed under the same license as the dialog package.
 #
 # Leonid Kanter <leon@asplinux.ru>, 2004.
-# Yuri Kozlov <yuray@komyakino.ru>, 2009, 2021.
+#  Yuri Kozlov <yuray@komyakino.ru>, 2026.
+# SPDX-FileCopyrightText: 2009, 2021, 2026 Yuri Kozlov <yuray@komyakino.ru>
 msgid ""
 msgstr ""
-"Project-Id-Version: dialog 1.3.20210117\n"
+"Project-Id-Version: dialog 1.3.20251001\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-17 15:18-0500\n"
-"PO-Revision-Date: 2021-03-05 07:19+0300\n"
+"POT-Creation-Date: 2021-03-06 08:43-0500\n"
+"PO-Revision-Date: 2026-01-16 18:40+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
 "Language: ru\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: buttons.c:500
@@ -59,25 +60,125 @@ msgstr "Месяц"
 msgid "Year"
 msgstr "Год"
 
-#: dialog.c:744
+#: dialog.c:473
+#, c-format
+msgid "Invalid option \"%s\""
+msgstr "неверный параметр «%s»"
+
+#: dialog.c:533
+#, c-format
+msgid "Showing arguments at arg%d\n"
+msgstr "Показаны аргументы начиная с arg%d\n"
+
+#: dialog.c:542
+msgid "Too many --file options"
+msgstr "Слишком много параметров --file"
+
+#: dialog.c:575
+msgid "error on filehandle in unescape_argv"
+msgstr "ошибка на filehandle в unescape_argv"
+
+#: dialog.c:634
+#, c-format
+msgid "Cannot open --file %s"
+msgstr "Невозможно открыть --file %s"
+
+#: dialog.c:638
+msgid "No value given for --file"
+msgstr "Не задано значение в --file"
+
+#: dialog.c:713
+#, c-format
+msgid ""
+"%s.\n"
+"Use --help to list options.\n"
+"\n"
+msgstr ""
+"%s.\n"
+"По --help выводится список параметров.\n"
+"\n"
+
+#: dialog.c:747
 #, c-format
 msgid "Expected %d arguments, found only %d"
 msgstr "Ожидается %d аргумента, найдено только %d"
 
-#: dialog.c:748
+#: dialog.c:751
 #, c-format
 msgid "Expected %d arguments, found extra %d"
 msgstr "Ожидается %d аргумента, дополнительно найдено %d"
 
-#: dialog.c:907
+#: dialog.c:775
+#, c-format
+msgid "Expected a number for token %d of %.*s"
+msgstr "Ожидается число для токена %d в %.*s"
+
+#: dialog.c:911
 msgid "Rename"
 msgstr "Переименовать"
 
-#: fselect.c:623
+#: dialog.c:1367
+#, c-format
+msgid "Expected a numeric-parameter for %.*s"
+msgstr "Для %.*s ожидается числовой параметр."
+
+#: dialog.c:1423
+#, c-format
+msgid "Button name \"%.*s\" unknown"
+msgstr "Неизвестная кнопка с именем «%.*s»"
+
+#: dialog.c:1896
+msgid "Cannot open input-fd\n"
+msgstr "Невозможно открыть input-fd\n"
+
+#: dialog.c:1903
+msgid "Cannot open output-fd\n"
+msgstr "Невозможно открыть output-fd\n"
+
+#: dialog.c:1983
+#, c-format
+msgid "Expected a filename for %.*s"
+msgstr "Для %.*s ожидается имя файла"
+
+#: dialog.c:2018
+msgid "Expected a box option"
+msgstr "Ожидается параметр box"
+
+#: dialog.c:2031
+#, c-format
+msgid "Unexpected widget with --separate-output %.*s"
+msgstr "В --separate-output %.*s обнаружен неожиданный виджет"
+
+#: dialog.c:2047
+#, c-format
+msgid "Unexpected option %.*s"
+msgstr "Неожиданный параметр %.*s"
+
+#: dialog.c:2048
+#, c-format
+msgid "Unknown option %.*s"
+msgstr "Неизвестный параметр %.*s"
+
+#: dialog.c:2056
+#, c-format
+msgid "Expected at least %d tokens for %.*s, have %d"
+msgstr "Ожидается не менее %d токенов в %.*s, имеется %d"
+
+#: dialog.c:2064
+#, c-format
+msgid "Expected no more than %d tokens for %.*s, have %d"
+msgstr "Ожидается не более %d токенов в %.*s, имеется %d"
+
+#: dialog.c:2128
+#, c-format
+msgid "Expected --and-widget, not %.*s"
+msgstr "Ожидается --and-widget, а не %.*s"
+
+#: fselect.c:630
 msgid "Directories"
 msgstr "Каталоги"
 
-#: fselect.c:624
+#: fselect.c:631
 msgid "Files"
 msgstr "Файлы"
 
@@ -121,6 +222,6 @@ msgstr "Н/Д"
 msgid "Overall Progress"
 msgstr "Всего выполнено"
 
-#: textbox.c:515
+#: textbox.c:517
 msgid "Search"
 msgstr "Поиск"

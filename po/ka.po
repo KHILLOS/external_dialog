@@ -1,21 +1,21 @@
 # Dialog
 # This file is distributed under the same license as the dialog package.
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026
 msgid ""
 msgstr ""
-"Project-Id-Version: dialog 1.3.20210117\n"
+"Project-Id-Version: dialog 1.3.20251001\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-17 15:18-0500\n"
-"PO-Revision-Date: 2022-04-29 15:11+0200\n"
+"POT-Creation-Date: 2021-03-06 08:43-0500\n"
+"PO-Revision-Date: 2026-01-04 14:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.8\n"
 
 #: buttons.c:500
 msgid "Yes"
@@ -55,25 +55,125 @@ msgstr "თვე"
 msgid "Year"
 msgstr "წელი"
 
-#: dialog.c:744
+#: dialog.c:473
+#, c-format
+msgid "Invalid option \"%s\""
+msgstr "არასწორი პარამეტრი \"%s\""
+
+#: dialog.c:533
+#, c-format
+msgid "Showing arguments at arg%d\n"
+msgstr "ნაჩვენებია არგუმენტები arg%d\n"
+
+#: dialog.c:542
+msgid "Too many --file options"
+msgstr "მეტისმეტად ბევრი --file პარამეტრი"
+
+#: dialog.c:575
+msgid "error on filehandle in unescape_argv"
+msgstr "ფაილის დამმუშავებლის შეცდომა unescape_argv-ში"
+
+#: dialog.c:634
+#, c-format
+msgid "Cannot open --file %s"
+msgstr "ვერ გავხსენი --file %s"
+
+#: dialog.c:638
+msgid "No value given for --file"
+msgstr "--file-ისთვის მნიშვნელობა მითითებული არაა"
+
+#: dialog.c:713
+#, c-format
+msgid ""
+"%s.\n"
+"Use --help to list options.\n"
+"\n"
+msgstr ""
+"%s.\n"
+"პარამეტრების სიისთვის მიუთითეთ --help .\n"
+"\n"
+
+#: dialog.c:747
 #, c-format
 msgid "Expected %d arguments, found only %d"
 msgstr "მოსალოდნელი %d არგუმენტის მაგიერ მიწოდებულია მხოლოდ %d"
 
-#: dialog.c:748
+#: dialog.c:751
 #, c-format
 msgid "Expected %d arguments, found extra %d"
 msgstr "მოსალოდნელი %d არგუმენტის მაგიერ მიწოდებულია ზედმეტი %d"
 
-#: dialog.c:907
+#: dialog.c:775
+#, c-format
+msgid "Expected a number for token %d of %.*s"
+msgstr "მოველოდი რიცხვის ტოკეტებისთვის %d %.*s-დან"
+
+#: dialog.c:911
 msgid "Rename"
 msgstr "სახელის გადარქმევა"
 
-#: fselect.c:623
+#: dialog.c:1367
+#, c-format
+msgid "Expected a numeric-parameter for %.*s"
+msgstr "%.*s-ისთვის რიცხვით პარამეტრს მოველოდი"
+
+#: dialog.c:1423
+#, c-format
+msgid "Button name \"%.*s\" unknown"
+msgstr "ღილაკის სახელი \"%.*s\" უცნობია"
+
+#: dialog.c:1896
+msgid "Cannot open input-fd\n"
+msgstr "input-fd ვერ გავხსენი\n"
+
+#: dialog.c:1903
+msgid "Cannot open output-fd\n"
+msgstr "output-fd ვერ გავხსენი\n"
+
+#: dialog.c:1983
+#, c-format
+msgid "Expected a filename for %.*s"
+msgstr "%.*s-ისთვის მოველოდი ფაილის სახელს"
+
+#: dialog.c:2018
+msgid "Expected a box option"
+msgstr "მოველოდი ველის პარამეტრს"
+
+#: dialog.c:2031
+#, c-format
+msgid "Unexpected widget with --separate-output %.*s"
+msgstr "მოულოდნელი ვიჯეტი პარამეტრით --separate-output %.*s"
+
+#: dialog.c:2047
+#, c-format
+msgid "Unexpected option %.*s"
+msgstr "მოულოდნელი პარამეტრი %.*s"
+
+#: dialog.c:2048
+#, c-format
+msgid "Unknown option %.*s"
+msgstr "უცნობი პარამეტრი %.*s"
+
+#: dialog.c:2056
+#, c-format
+msgid "Expected at least %d tokens for %.*s, have %d"
+msgstr "მოველოდი, სულ ცოტა %d ტოკენს %.*s-ისთვის. მივიღე %d"
+
+#: dialog.c:2064
+#, c-format
+msgid "Expected no more than %d tokens for %.*s, have %d"
+msgstr "მოველოდი არაუმეტეს %d ტოკენს %.*s-ისთვის. მივიღე %d"
+
+#: dialog.c:2128
+#, c-format
+msgid "Expected --and-widget, not %.*s"
+msgstr "მოველოდი პარამეტრს --and-widget და არა %.*s"
+
+#: fselect.c:630
 msgid "Directories"
 msgstr "საქაღალდეები"
 
-#: fselect.c:624
+#: fselect.c:631
 msgid "Files"
 msgstr "ფაილები"
 
@@ -117,6 +217,6 @@ msgstr "არარსებული"
 msgid "Overall Progress"
 msgstr "სრული მიდინარეობა"
 
-#: textbox.c:515
+#: textbox.c:517
 msgid "Search"
 msgstr "ძებნა"

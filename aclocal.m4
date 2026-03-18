@@ -1,7 +1,7 @@
 dnl macros used for DIALOG configure script
-dnl $Id: aclocal.m4,v 1.209 2025/12/25 23:43:31 tom Exp $
+dnl $Id: aclocal.m4,v 1.211 2026/03/18 20:36:41 tom Exp $
 dnl ---------------------------------------------------------------------------
-dnl Copyright 1999-2024,2025 -- Thomas E. Dickey
+dnl Copyright 1999-2025,2026 -- Thomas E. Dickey
 dnl
 dnl Permission is hereby granted, free of charge, to any person obtaining a
 dnl copy of this software and associated documentation files (the
@@ -263,7 +263,7 @@ fi
 AC_SUBST($1)dnl
 ])dnl
 dnl ---------------------------------------------------------------------------
-dnl AM_WITH_NLS version: 41 updated: 2025/12/22 04:16:14
+dnl AM_WITH_NLS version: 42 updated: 2026/03/18 16:36:02
 dnl -----------
 dnl Inserted as requested by gettext 0.10.40
 dnl File from /usr/share/aclocal
@@ -405,7 +405,7 @@ CF__INTL_HEAD,
   fi
 
   if test "$XGETTEXT" != ":"; then
-    AC_OUTPUT_COMMANDS(
+    AC_CONFIG_COMMANDS(config-NLS,
      [for ac_file in $CONFIG_FILES; do
 
         # Support "outfile[:infile[:infile...]]"
@@ -415,11 +415,11 @@ CF__INTL_HEAD,
 
         # PO directories have a Makefile.in generated from Makefile.inn.
         case "$ac_file" in
-        (*/[Mm]akefile.in)
+        (*/[[Mm]]akefile.in)
           # Adjust a relative srcdir.
-          ac_dir="`echo "$ac_file"|sed 's%/[^/][^/]*$%%'`"
+          ac_dir="`echo "$ac_file"|sed 's%/[[^/]][[^/]]*$%%'`"
           ac_dir_suffix="/`echo "$ac_dir"|sed 's%^\./%%'`"
-          ac_dots="`echo "$ac_dir_suffix"|sed 's%/[^/]*%../%g'`"
+          ac_dots="`echo "$ac_dir_suffix"|sed 's%/[[^/]]*%../%g'`"
           ac_base="`basename $ac_file .in`"
           # In autoconf-2.13 it is called $ac_given_srcdir.
           # In autoconf-2.50 it is called $srcdir.
@@ -3430,7 +3430,7 @@ printf("old\\n");
 	,[$1=no])
 ])dnl
 dnl ---------------------------------------------------------------------------
-dnl CF_NCURSES_CONFIG version: 30 updated: 2025/12/22 04:16:14
+dnl CF_NCURSES_CONFIG version: 31 updated: 2026/01/18 10:40:15
 dnl -----------------
 dnl Tie together the configure-script macros for ncurses, preferring these in
 dnl order:
@@ -3470,9 +3470,9 @@ if test "x${PKG_CONFIG:=none}" != xnone; then
 
 			AC_LINK_IFELSE([AC_LANG_PROGRAM([#include <${cf_cv_ncurses_header:-curses.h}>],
 				[initscr(); mousemask(0,0); tigetstr((char *)0);])],
-				[AC_TRY_RUN([#include <${cf_cv_ncurses_header:-curses.h}>
+				[AC_RUN_IFELSE([AC_LANG_SOURCE([#include <${cf_cv_ncurses_header:-curses.h}>
 					int main(void)
-					{ const char *xx = curses_version(); return (xx == 0); }],
+					{ const char *xx = curses_version(); return (xx == 0); }])],
 					[cf_test_ncuconfig=yes],
 					[cf_test_ncuconfig=no],
 					[cf_test_ncuconfig=maybe])],
@@ -3497,9 +3497,9 @@ if test "x${PKG_CONFIG:=none}" != xnone; then
 
 		AC_LINK_IFELSE([AC_LANG_PROGRAM([#include <${cf_cv_ncurses_header:-curses.h}>],
 			[initscr(); mousemask(0,0); tigetstr((char *)0);])],
-			[AC_TRY_RUN([#include <${cf_cv_ncurses_header:-curses.h}>
+			[AC_RUN_IFELSE([AC_LANG_SOURCE([#include <${cf_cv_ncurses_header:-curses.h}>
 				int main(void)
-				{ const char *xx = curses_version(); return (xx == 0); }],
+				{ const char *xx = curses_version(); return (xx == 0); }])],
 				[cf_have_ncuconfig=yes],
 				[cf_have_ncuconfig=no],
 				[cf_have_ncuconfig=maybe])],
@@ -3760,7 +3760,7 @@ then
 fi
 ])dnl
 dnl ---------------------------------------------------------------------------
-dnl CF_NCURSES_VERSION version: 19 updated: 2025/12/22 04:16:14
+dnl CF_NCURSES_VERSION version: 20 updated: 2026/01/18 10:40:15
 dnl ------------------
 dnl Check for the version of ncurses, to aid in reporting bugs, etc.
 dnl Call CF_CURSES_CPPFLAGS first, or CF_NCURSES_CPPFLAGS.  We don't use
@@ -3772,7 +3772,7 @@ AC_CACHE_CHECK(for ncurses version, cf_cv_ncurses_version,[
 	cf_cv_ncurses_version=no
 	cf_tempfile=out$$
 	rm -f "$cf_tempfile"
-	AC_TRY_RUN([
+	AC_RUN_IFELSE([AC_LANG_SOURCE([
 $ac_includes_default
 
 #include <${cf_cv_ncurses_header:-curses.h}>
@@ -3794,7 +3794,7 @@ int main(void)
 # endif
 #endif
 	${cf_cv_main_return:-return}(0);
-}],[
+}])],[
 	cf_cv_ncurses_version=`cat $cf_tempfile`],,[
 
 	# This will not work if the preprocessor splits the line after the
@@ -4324,7 +4324,7 @@ AC_SUBST(GROFF_NOTE)
 AC_SUBST(NROFF_NOTE)
 ])dnl
 dnl ---------------------------------------------------------------------------
-dnl CF_PROG_INSTALL version: 13 updated: 2025/10/21 16:28:49
+dnl CF_PROG_INSTALL version: 14 updated: 2026/01/31 09:07:58
 dnl ---------------
 dnl Force $INSTALL to be an absolute-path.  Otherwise, edit_man.sh and the
 dnl misc/tabset install won't work properly.  Usually this happens only when
@@ -4336,7 +4336,7 @@ if test "x$INSTALL" = "x./install-sh -c"; then
 	if test -f /usr/sbin/install ; then
 		case "$host_os" in
 		(linux*gnu*|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc)
-			INSTALL=/usr/sbin/install 
+			INSTALL=/usr/sbin/install
 			;;
 		esac
 	fi

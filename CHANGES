@@ -1,8 +1,12 @@
--- $Id: CHANGES,v 1.849 2026/01/08 00:23:31 tom Exp $
+-- $Id: CHANGES,v 1.851 2026/03/18 08:14:13 tom Exp $
 -- Thomas E. Dickey <dickey@invisible-island.net>
 
 This version of dialog was originally from a Debian snapshot.  I've done this
 to it:
+
+2026/03/18
+	+ updated ar.po, ka.po, ms.po, ru.po, sr.po from
+		https://translationproject.org/latest/dialog/
 
 2026/01/07
 	+ modify package/debian/* to work with Debian 13+.
