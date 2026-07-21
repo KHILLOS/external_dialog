@@ -1,9 +1,9 @@
 Summary: dialog - display dialog boxes from shell scripts
 %define AppProgram dialog
 %define AppVersion 1.3
-%define AppRelease 20260419
+%define AppRelease 20260721
 %define ActualProg c%{AppProgram}
-# $XTermId: dialog.spec,v 1.209 2026/04/19 13:21:57 tom Exp $
+# $XTermId: dialog.spec,v 1.210 2026/07/21 19:55:02 tom Exp $
 Name: %{ActualProg}
 Version: %{AppVersion}
 Release: %{AppRelease}
@@ -98,8 +98,8 @@ chmod 755 $RPM_BUILD_ROOT%{_libdir}/lib%{ActualProg}.so.*
 %changelog
 # each patch should add its ChangeLog entries here
 
-* Sun Apr 19 2026 Thomas E. Dickey
-- testing dialog 1.3-20260419
+* Tue Jul 21 2026 Thomas E. Dickey
+- testing dialog 1.3-20260721
 
 * Thu Feb 09 2023 Thomas Dickey
 - add ".pc" file

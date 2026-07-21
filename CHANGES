@@ -1,8 +1,14 @@
--- $Id: CHANGES,v 1.853 2026/04/19 13:33:34 tom Exp $
+-- $Id: CHANGES,v 1.856 2026/07/21 20:12:42 tom Exp $
 -- Thomas E. Dickey <dickey@invisible-island.net>
 
 This version of dialog was originally from a Debian snapshot.  I've done this
 to it:
+
+2026/07/21
+	+ correct order of sprintf parameters for token-count error messages
+	  (patch by Xinting Zhou).
+	+ updated cs.po, zh_CN.po from
+		https://translationproject.org/latest/dialog/
 
 2026/04/19
 	+ configure script fixes for compiler warnings

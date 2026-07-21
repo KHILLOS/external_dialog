@@ -1,5 +1,5 @@
 dnl macros used for DIALOG configure script
-dnl $Id: aclocal.m4,v 1.213 2026/04/19 14:07:15 tom Exp $
+dnl $Id: aclocal.m4,v 1.214 2026/04/20 22:50:04 tom Exp $
 dnl ---------------------------------------------------------------------------
 dnl Copyright 1999-2025,2026 -- Thomas E. Dickey
 dnl
@@ -3430,7 +3430,7 @@ printf("old\\n");
 	,[$1=no])
 ])dnl
 dnl ---------------------------------------------------------------------------
-dnl CF_NCURSES_CONFIG version: 32 updated: 2026/04/19 10:06:00
+dnl CF_NCURSES_CONFIG version: 33 updated: 2026/04/20 18:50:04
 dnl -----------------
 dnl Tie together the configure-script macros for ncurses, preferring these in
 dnl order:
@@ -3496,7 +3496,7 @@ if test "x${PKG_CONFIG:=none}" != xnone; then
 		CF_ADD_LIBS($cf_pkg_libs)
 
 		AC_LINK_IFELSE([AC_LANG_PROGRAM([#include <${cf_cv_ncurses_header:-curses.h}>],
-			[initscr(); mousemask(0,0); tigetstr((char *)0);])],
+			[initscr(); mousemask(0,(void*)0); tigetstr((char *)0);])],
 			[AC_RUN_IFELSE([AC_LANG_SOURCE([#include <${cf_cv_ncurses_header:-curses.h}>
 				int main(void)
 				{ const char *xx = curses_version(); return (xx == (const char*)0); }])],
@@ -3678,7 +3678,7 @@ esac
 
 ])dnl
 dnl ---------------------------------------------------------------------------
-dnl CF_NCURSES_LIBS version: 22 updated: 2025/12/22 04:16:14
+dnl CF_NCURSES_LIBS version: 23 updated: 2026/04/20 18:50:04
 dnl ---------------
 dnl Look for the ncurses library.  This is a little complicated on Linux,
 dnl because it may be linked with the gpm (general purpose mouse) library.
@@ -3736,7 +3736,7 @@ if test -n "$cf_ncurses_LIBS" ; then
 		fi
 	done
 	AC_LINK_IFELSE([AC_LANG_PROGRAM([#include <${cf_cv_ncurses_header:-curses.h}>],
-		[initscr(); mousemask(0,0); tigetstr((char *)0);])],
+		[initscr(); mousemask(0,(void*)0); tigetstr((char *)0);])],
 		[AC_MSG_RESULT(yes)],
 		[AC_MSG_RESULT(no)
 		 LIBS="$cf_ncurses_SAVE"])

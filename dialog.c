@@ -1,5 +1,5 @@
 /*
- * $Id: dialog.c,v 1.297 2026/01/01 13:22:13 tom Exp $
+ * $Id: dialog.c,v 1.298 2026/07/21 20:07:14 Xinting.Zhou Exp $
  *
  *  cdialog - Display simple dialog boxes from shell scripts
  *
@@ -2044,16 +2044,16 @@ main(int argc, char *argv[])
 	have = arg_rest(&argv[offset]);
 	if (have < modePtr->argmin) {
 	    sprintf(temp, _("Expected at least %d tokens for %.*s, have %d"),
-		    USEMAX_ARGS,
-		    modePtr->argmin - 1, argv[offset],
+		    modePtr->argmin - 1,
+		    USEMAX_ARGS, argv[offset],
 		    have - 1);
 	    Usage(temp);
 	}
 	if (modePtr->argmax && have > modePtr->argmax) {
 	    sprintf(temp,
 		    _("Expected no more than %d tokens for %.*s, have %d"),
-		    USEMAX_ARGS,
-		    modePtr->argmax - 1, argv[offset],
+		    modePtr->argmax - 1,
+		    USEMAX_ARGS, argv[offset],
 		    have - 1);
 	    Usage(temp);
 	}

@@ -16039,7 +16039,7 @@ LIBS="$cf_add_libs"
 int
 main (void)
 {
-initscr(); mousemask(0,0); tigetstr((char *)0);
+initscr(); mousemask(0,(void*)0); tigetstr((char *)0);
   ;
   return 0;
 }
@@ -17718,7 +17718,7 @@ echo $ECHO_N "checking if we can link $cf_nculib_root without $cf_ncurses_LIBS..
 int
 main (void)
 {
-initscr(); mousemask(0,0); tigetstr((char *)0);
+initscr(); mousemask(0,(void*)0); tigetstr((char *)0);
   ;
   return 0;
 }
@@ -18140,7 +18140,7 @@ LIBS="$cf_add_libs"
 int
 main (void)
 {
-initscr(); mousemask(0,0); tigetstr((char *)0);
+initscr(); mousemask(0,(void*)0); tigetstr((char *)0);
   ;
   return 0;
 }
@@ -19819,7 +19819,7 @@ echo $ECHO_N "checking if we can link $cf_nculib_root without $cf_ncurses_LIBS..
 int
 main (void)
 {
-initscr(); mousemask(0,0); tigetstr((char *)0);
+initscr(); mousemask(0,(void*)0); tigetstr((char *)0);
   ;
   return 0;
 }

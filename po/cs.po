@@ -4,69 +4,185 @@
 #
 # Martin Povolny <martin@solnet.cz>
 # Marek Černocký <marek@manet.cz>, 2011.
+# Petr Pisar <petr.pisar@atlas.cz>, 2026.
 #
+# box → rámeček
 msgid ""
 msgstr ""
-"Project-Id-Version: dialog 1.1.20080819\n"
+"Project-Id-Version: dialog 1.3.20251001\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-18 18:26-0400\n"
-"PO-Revision-Date: 2011-11-25 13:18+0100\n"
-"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"POT-Creation-Date: 2021-03-06 08:43-0500\n"
+"PO-Revision-Date: 2026-05-22 20:27+02:00\n"
+"Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "Language: cs\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: buttons.c:385
+#: buttons.c:500
 msgid "Yes"
 msgstr "Ano"
 
-#: buttons.c:393
+#: buttons.c:508
 msgid "No"
 msgstr "Ne"
 
-#: buttons.c:401
+#: buttons.c:516
 msgid "OK"
 msgstr "Budiž"
 
-#: buttons.c:409
+#: buttons.c:524
 msgid "Cancel"
 msgstr "Storno"
 
-#: buttons.c:417
+#: buttons.c:532
 msgid "EXIT"
 msgstr "Konec"
 
-#: buttons.c:425
+#: buttons.c:540
 msgid "Extra"
 msgstr "Další"
 
-#: buttons.c:433
+#: buttons.c:548
 msgid "Help"
 msgstr "Nápověda"
 
 #. Headline "Month"
-#: calendar.c:273
+#: calendar.c:463
 msgid "Month"
 msgstr "Měsíc"
 
 #. Headline "Year"
-#: calendar.c:293
+#: calendar.c:485
 msgid "Year"
 msgstr "Rok"
 
-#: dialog.c:741
+#: dialog.c:473
+#, c-format
+msgid "Invalid option \"%s\""
+msgstr "Neplatný přepínač „%s“"
+
+#: dialog.c:533
+#, c-format
+msgid "Showing arguments at arg%d\n"
+msgstr "Ukazují se argumenty pro arg%d\n"
+
+#: dialog.c:542
+msgid "Too many --file options"
+msgstr "Příliš mnoho přepínačů --file"
+
+#: dialog.c:575
+msgid "error on filehandle in unescape_argv"
+msgstr "chyba deskriptoru souboru ve funkci unescape_argv"
+
+#: dialog.c:634
+#, c-format
+msgid "Cannot open --file %s"
+msgstr "Soubor %s nelze otevřít"
+
+#: dialog.c:638
+msgid "No value given for --file"
+msgstr "Přepínači --file nebyla zadána žádná hodnota"
+
+#: dialog.c:713
+#, c-format
+msgid ""
+"%s.\n"
+"Use --help to list options.\n"
+"\n"
+msgstr ""
+"%s.\n"
+"Seznam přepínačů zobrazíte pomocí --help.\n"
+"\n"
+
+# TODO: Pluralize
+#: dialog.c:747
+#, c-format
+msgid "Expected %d arguments, found only %d"
+msgstr "Očekáváno %d argumentů, nalezeny jen %d"
+
+# TODO: Pluralize
+#: dialog.c:751
+#, c-format
+msgid "Expected %d arguments, found extra %d"
+msgstr "Očekáváno %d argumentů, nalezeno nadbytečných %d"
+
+#: dialog.c:775
+#, c-format
+msgid "Expected a number for token %d of %.*s"
+msgstr "V tokenu %d %.*s bylo očekáváno číslo"
+
+#: dialog.c:911
 msgid "Rename"
 msgstr "Přejmenovat"
 
-#: fselect.c:550
+#: dialog.c:1367
+#, c-format
+msgid "Expected a numeric-parameter for %.*s"
+msgstr "V %.*s byl očekáván číselný parametr"
+
+#: dialog.c:1423
+#, c-format
+msgid "Button name \"%.*s\" unknown"
+msgstr "Název tlačítka „%.*s“ není znám"
+
+#: dialog.c:1896
+msgid "Cannot open input-fd\n"
+msgstr "Deskriptor vstupního souboru nelze otevřít\n"
+
+#: dialog.c:1903
+msgid "Cannot open output-fd\n"
+msgstr "Deskriptor výstupního souboru nelze otevřít\n"
+
+#: dialog.c:1983
+#, c-format
+msgid "Expected a filename for %.*s"
+msgstr "V %.*s se očekával název souboru"
+
+#: dialog.c:2018
+msgid "Expected a box option"
+msgstr "Očekáván přepínač rámečku"
+
+#: dialog.c:2031
+#, c-format
+msgid "Unexpected widget with --separate-output %.*s"
+msgstr "Nečekaný widget v --separate-output %.*s"
+
+#: dialog.c:2047
+#, c-format
+msgid "Unexpected option %.*s"
+msgstr "Nečekaný přepínač %.*s"
+
+#: dialog.c:2048
+#, c-format
+msgid "Unknown option %.*s"
+msgstr "Neznámý přepínač %.*s"
+
+#  TODO: Pluralize
+#: dialog.c:2056
+#, c-format
+msgid "Expected at least %d tokens for %.*s, have %d"
+msgstr "Očekáváno alespoň %d tokenů v %.*s, je jich %d"
+
+#  TODO: Pluralize
+#: dialog.c:2064
+#, c-format
+msgid "Expected no more than %d tokens for %.*s, have %d"
+msgstr "Očekáváno ne více než %d tokenů v %.*s, je jich %d"
+
+#: dialog.c:2128
+#, c-format
+msgid "Expected --and-widget, not %.*s"
+msgstr "Očekáváno --and-widget, ne %.*s"
+
+#: fselect.c:630
 msgid "Directories"
 msgstr "Složky"
 
-#: fselect.c:551
+#: fselect.c:631
 msgid "Files"
 msgstr "Soubory"
 
@@ -110,6 +226,6 @@ msgstr "Není známo"
 msgid "Overall Progress"
 msgstr "Celkový průběh"
 
-#: textbox.c:489
+#: textbox.c:517
 msgid "Search"
 msgstr "Hledat"
