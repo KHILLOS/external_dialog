@@ -1,0 +1,67 @@
+package {
+    default_applicable_licenses: ["external_dialog_license"],
+}
+
+license {
+    name: "external_dialog_license",
+    license_kinds: ["SPDX-license-identifier-LGPL-2.1-only"],
+    license_text: ["COPYING"],
+}
+
+cc_binary {
+    name: "dialog",
+    srcs: [
+        "argv.c",
+        "arrows.c",
+        "buildlist.c",
+        "buttons.c",
+        "calendar.c",
+        "checklist.c",
+        "columns.c",
+        "dialog.c",
+        "dlg_keys.c",
+        "editbox.c",
+        "formbox.c",
+        "fselect.c",
+        "guage.c",
+        "help.c",
+        "inputbox.c",
+        "inputstr.c",
+        "menubox.c",
+        "mixedform.c",
+        "mixedgauge.c",
+        "mouse.c",
+        "mousewget.c",
+        "msgbox.c",
+        "pause.c",
+        "prgbox.c",
+        "progressbox.c",
+        "rangebox.c",
+        "rc.c",
+        "tailbox.c",
+        "textbox.c",
+        "timebox.c",
+        "trace.c",
+        "treeview.c",
+        "ttysize.c",
+        "ui_getc.c",
+        "util.c",
+        "version.c",
+        "yesno.c",
+    ],
+    cflags: [
+        "-D_DEFAULT_SOURCE",
+        "-D_XOPEN_SOURCE_EXTENDED",
+        "-D_XOPEN_SOURCE=500",
+        "-DHAVE_CONFIG_H",
+        "-DLOCALEDIR=\"/vendor/etc/locale\"",
+        "-Wno-unused-parameter",
+    ],
+    shared_libs: [
+        "libncurses",
+    ],
+    vendor_available: true,
+    // NOTE: libncurses link deferred until external/libncurses port lands (Batch 2).
+    // This module compiles cleanly with the checked-in dlg_config.h; link/test
+    // requires libncurses from the KhillOS port.
+}
