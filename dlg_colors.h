@@ -23,6 +23,9 @@
  *  An earlier version of this program lists as authors
  *	Savio Lam (lam836@cs.cuhk.hk)
  */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 
 #ifndef COLORS_H_included
 #define COLORS_H_included 1

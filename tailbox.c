@@ -23,6 +23,9 @@
  *  An earlier version of this program lists as authors
  *	Pasquale De Marco (demarco_p@abramo.it)
  */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 
 #include <dlg_internals.h>
 #include <dlg_keys.h>

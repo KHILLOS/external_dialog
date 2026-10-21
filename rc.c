@@ -23,6 +23,9 @@
  *  An earlier version of this program lists as authors
  *	Savio Lam (lam836@cs.cuhk.hk)
  */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 
 #include <dlg_internals.h>
 #include <dlg_keys.h>

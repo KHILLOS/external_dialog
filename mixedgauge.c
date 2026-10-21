@@ -23,6 +23,9 @@
  *  This is inspired by a patch from Kiran Cherupally
  *  (but different interface design).
  */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 
 #include <dlg_internals.h>
 

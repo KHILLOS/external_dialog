@@ -21,6 +21,9 @@
  *	51 Franklin St., Fifth Floor
  *	Boston, MA 02110, USA.
  */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 
 #include <dlg_internals.h>
 #include <dlg_keys.h>

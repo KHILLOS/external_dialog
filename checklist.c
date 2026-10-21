@@ -25,6 +25,9 @@
  *	Stuart Herbert - S.Herbert@sheffield.ac.uk: radiolist extension
  *	Alessandro Rubini - rubini@ipvvis.unipv.it: merged the two
  */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 
 #include <dlg_internals.h>
 #include <dlg_keys.h>

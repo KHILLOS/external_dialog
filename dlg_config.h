@@ -4,6 +4,9 @@
  * (Thomas Dickey's dialog snapshot t20260721).
  * This replaces the host-configure genrule used by BlissOS.
  */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 
 #define HAVE_CONFIG_H 1
 #define NCURSES 1

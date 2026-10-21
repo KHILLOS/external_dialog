@@ -23,6 +23,9 @@
  *  An earlier version of this program lists as authors
  *	Marc Ewing, Red Hat Software
  */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 
 #include <dlg_internals.h>
 

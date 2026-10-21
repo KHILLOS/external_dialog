@@ -23,6 +23,9 @@
  *  This is adapted from source contributed by
  *	Valery Reznic (valery_reznic@users.sourceforge.net)
  */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 
 #include <dlg_internals.h>
 #include <dlg_keys.h>

@@ -1,0 +1,21 @@
+# This project was upgraded with external_updater.
+# Usage: tools/external_updater/updater.sh update external/dialog
+# For more info, check https://cs.android.com/android/platform/superproject/main/+/main:tools/external_updater/README.md
+
+name: "dialog"
+description: "Dialog is a program that will let you present a variety of questions or display messages using dialog boxes from a shell script."
+third_party {
+  license_type: NOTICE
+  last_upgrade_date {
+    year: 2026
+    month: 10
+    day: 21
+  }
+  homepage: "https://invisible-island.net/dialog/"
+  identifier {
+    type: "Git"
+    value: "https://github.com/ThomasDickey/dialog-snapshots"
+    version: "e65d9f4"
+    closest_version: "1.3-20260721"
+  }
+}

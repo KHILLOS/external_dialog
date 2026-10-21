@@ -1,4 +1,7 @@
 /* Copyright (C) 1995 Florian La Roche */
+/*
+ * SPDX-License-Identifier: LGPL-2.1-only
+ */
 /* Who wants to help coding? I don't like doing this... */
 
 /* You can just start setup as normal user and see how far it is coded
